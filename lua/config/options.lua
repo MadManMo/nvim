@@ -1,5 +1,3 @@
--- ~/.config/nvim/lua/config/options.lua
-
 local opt = vim.opt
 
 -- Indentation settings

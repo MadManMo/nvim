@@ -1,12 +1,12 @@
 return {
-  -- LSP Setup
+
   { 
     "neovim/nvim-lspconfig" 
   },
   
   {
     "williamboman/mason.nvim",
-    build = ":MasonUpdate",  -- ensures mason is updated
+    build = ":MasonUpdate",
     config = function()
       require("mason").setup()
     end,
@@ -16,7 +16,7 @@ return {
     "williamboman/mason-lspconfig.nvim",
     config = function()
       require("mason-lspconfig").setup({
-        ensure_installed = {  -- List of servers to install
+        ensure_installed = {
           "ts_ls", "clangd", "pyright", "lua_ls", "html", "cssls",
           "graphql", "emmet_ls", "cmake", "gopls", "marksman", "taplo"
         },
@@ -24,21 +24,21 @@ return {
     end,
   },
 
-  -- Completion Setup
+
   {
     "hrsh7th/nvim-cmp",
     dependencies = {
-      "hrsh7th/cmp-nvim-lsp",  -- Nvim-CMP LSP completion source
+      "hrsh7th/cmp-nvim-lsp",
     },
   },
 
-  -- Explicitly load cmp-nvim-lsp early
+
   {
     "hrsh7th/cmp-nvim-lsp",
-    lazy = true,  -- Lazy loading
+    lazy = true,
   },
 
-  -- Configuring LSPs with nvim-lspconfig
+
   {
     "neovim/nvim-lspconfig",
     config = function()
@@ -52,7 +52,7 @@ return {
 
       for _, server in ipairs(servers) do
         lspconfig[server].setup({
-          capabilities = capabilities,  -- Set completion capabilities
+          capabilities = capabilities,
         })
       end
     end,

@@ -23,7 +23,7 @@ return {
             { "diagnostics", sources = { "nvim_diagnostic" } },
             {
               function()
-                local clients = vim.lsp.get_clients({ bufnr = 0 })  -- Updated to get_clients
+                local clients = vim.lsp.get_clients({ bufnr = 0 })
                 if #clients == 0 then
                   return "󰒕 No LSP"
                 end
